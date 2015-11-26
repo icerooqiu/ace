@@ -18,13 +18,13 @@
 </body>
 <script type="text/javascript">
 	window.addEventListener('message', function(event) {
-    console.log("result");
+    //console.log("result");
     var c = "clear";
     if (event.origin == 'http://cs.mcgill.ca') {
       if(c.localeCompare(event.data) == 0){
         clear();
       }else{
-        console.log("sss");
+        //console.log("sss");
         write(event.data);
       }
     } else {

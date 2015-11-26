@@ -61,7 +61,7 @@
 		var command = document.getElementById("command").value;
 		var content = str;
 		sendServer(content, command);
-		console.log(command,content);
+		//console.log(command,content);
 	}
 	document.getElementById("save").onclick = function(){
 		var frame = document.getElementById('ed');
@@ -77,12 +77,12 @@
 		//box(st);
 	}
 	function annotation(str){
-		console.log("xsghvcsdcv");
+		//console.log("xsghvcsdcv");
 		var frame = document.getElementById('ed');
 		frame.contentWindow.postMessage(str,'http://cs.mcgill.ca/');
 	}
 	function box(str){
-		console.log("sks");
+		//console.log("sks");
 		var frame = document.getElementById('res');
 		frame.contentWindow.postMessage(str,'http://cs.mcgill.ca/');
 	}
@@ -116,14 +116,11 @@
 			  dataType: "json",
 			  success: function(data)
 			    {
-			        //var tmp = JSON.parse(data);
-			        split();
-			        box(data["Output:"]);
-			        box(data['Compiler Error:']);
-			        annotation(data['Compiler Error:']);
-			        console.log(data['Compiler Error:']);
 
-		        //console.log('success');
+			        annotation(data['Compiler Error:']);
+			        split(data['Compiler Error:']);
+			        box(data["Output:"]);
+
 			    },
 			    error: function (responseData, textStatus, errorThrown)
 			    {
@@ -134,11 +131,10 @@
 
 		};
 	function split(str){
-		var c = str.split("\n");
+		var c = str.split('\n');
 		var tmp = [];
 		for(var i = 0; i < c.length; i++){
-			var c[i]
-
+			box(c[i]);
 		}
 	}
 

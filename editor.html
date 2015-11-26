@@ -73,7 +73,7 @@ int main(){
 		//console.log("ss");
 		var row = editor.getCursorPosition().row;
 		var col = editor.getCursorPosition().column;
-		console.log(row,preRow);    
+		//console.log(row,preRow);    
 		var i = (row>preRow)?preRow:row;
 		var j = (row<preRow)?preRow:row;
     //console.log(i,j);
@@ -83,7 +83,7 @@ int main(){
           //console.log(editor.session.getLine(i));
           //getError(parseError(editor.session.getLine(i);i));
           var tmp = i;
-          console.log(editor.session.getLine(i),i,(tmp - 1));
+          //console.log(editor.session.getLine(i),i,(tmp - 1));
           //parseError(editor.session.getLine(i);i;tmp - 1);
       }
     }
@@ -98,7 +98,7 @@ int main(){
 </script>
 <script type="text/javascript">
 	window.addEventListener('message', function(event) {
-    console.log(event.data);
+    //console.log(event.data);
    if (event.origin == 'http://cs.mcgill.ca') {
    	  var c = "save";
       if(c.localeCompare(event.data) == 0){
@@ -141,7 +141,7 @@ function value(type, name){
 
 function parseCompilerError(text, errorList, warningList){
 
-    console.log(text);
+    //console.log(text);
     if(text.search("gcc: error:") === 0){
         return errorList;
     }
