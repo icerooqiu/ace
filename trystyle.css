@@ -1,0 +1,147 @@
+﻿* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body {
+    color:#000000;
+    margin:0px;
+    font-size:100%;
+}
+.container {
+    background-color:#f1f1f1;
+    height:100%;
+    width:100%;
+    position:absolute;
+    top:0;
+    bottom:0;
+    height:auto;
+    min-height:250px;
+    min-width:550px;
+    overflow: auto;
+
+}
+.textareacontainer, .iframecontainer {
+    float:left;
+    height:100%;
+    width:50%;
+}
+.textarea, .iframe {
+    height:100%;
+    width:100%;
+    padding:15px;
+}
+.textarea {
+    padding-right:7px;
+}
+.iframe {
+    padding-left:7px;
+}
+.headerText {
+    width:auto;
+    float:left;
+    font-family:verdana;
+    font-size:1em;
+    line-height:2;
+}
+.command {
+    margin-top: 5px;
+    font-size:13px;
+    background-color:#555555;
+    color:#ffffff;
+    border:1px solid red;
+    line-height:2;
+    width:500; 
+    box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);  
+}
+.save{
+    float:right;
+    font-size:13px;
+    background-color:#555555;
+    color:#ffffff;
+    border:1px solid white;
+    line-height:2;
+    margin-bottom: 5px;
+    width:auto;
+    cursor:pointer;  
+    box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);  
+}
+.clear{
+    float:right;
+    font-size:13px;
+    background-color:#555555;
+    color:#ffffff;
+    border:1px solid red;
+    line-height:2;
+    margin-bottom: 5px;
+    width:auto;
+    cursor:pointer;  
+    box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);  
+}
+.seeResult{
+    float:right;
+    font-size:13px;
+    background-color:#555555;
+    color:#ffffff;
+    border:1px solid red;
+    line-height:2;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    width:auto;
+	cursor:pointer;  
+    box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);  
+}
+.seeResult:hover,.clear:hover,.save:hover {
+    background-color:#ffffff;
+    color:#000000;
+}
+.seeResult:active,.clear:hover,.save:hover {
+    background-color:#f1f1f1;
+}
+.textareawrapper {
+    width:100%;
+    height:92%;
+    background-color: #ffffff;
+    box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.iframewrapper {
+    width:100%;
+    height:92%;
+    -webkit-overflow-scrolling: touch;
+    background-color: #ffffff;
+    box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+#iframeResult, #iframeSource {
+    background-color: #ffffff;
+    height:100%;
+    width:100%;  
+}
+.taF{
+    background-color: #ffffff;
+    height:100%;
+    width:100%;    
+}
+.footerText {
+	position:absolute;
+	bottom:0;
+	font-family:verdana;
+	font-size:0.8em;
+	width:100%;
+	padding-right:15px;
+	text-align:right;
+    height:20px;
+    overflow:hidden;
+}
+.footerText a {
+	color:#000000;
+}
+.footerText a:hover {
+	text-decoration:none;
+}
+#tryitLeaderboard {
+    overflow:hidden;
+    text-align:center;
+    margin-top:5px;
+}
+
+

@@ -1,0 +1,171 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  	<link rel="stylesheet" type="text/css" href="trystyle.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<body>
+	<div class = "container">
+		<div class = "textareacontainer">
+			<div class = "textarea">
+				<div style = "overflow:auto;">
+					<div class = "headerText">Write your code here:</div>
+					<button class="save" id = "save" type="button">SAVE</button>
+					<button class="seeResult" type="button" onclick="submit()">Compile »</button>
+				</div> 
+				<div id ="textareawrapper" class = "textareawrapper">
+				<iframe id = "ed" frameborder="1" class = "taF" src = "editor.html">
+				</iframe><br>
+				</div>
+				<div style = "overflow:auto;">
+					<input class="command" id = "command" value = "gcc userProgram.c"></input>
+				</div>
+			</div>
+		</div>
+		<div class = "textareacontainer">
+			<div class = "textarea">
+				<div style = "overflow:auto;">
+					<div class = "headerText">Result:</div>
+					<button class="clear" id = "clear" type="button">CLEAR</button>
+				</div> 
+				<div id ="textareawrapper" class = "textareawrapper">
+				<iframe id = "res" frameborder="1" class = "taF" src = "result.html">
+				</iframe><br>
+				</div>
+			</div>
+		</div>
+		<div class="footerText">BLA - © </div>
+	</div>
+</body>
+<script>
+    var t = 0;
+	window.addEventListener('message', function(event) {
+		if (event.origin == 'http://cs.mcgill.ca') {
+			if ( t == 0){
+				go(event.data);
+			}else{
+				download(event.data);
+			}
+			//download(event.data);
+    	} else {
+        // The data hasn't been sent from your site!
+        // Be careful! Do not use it.
+        return;
+   		}
+	});
+	function submit(){
+		var frame = document.getElementById('ed');
+		frame.contentWindow.postMessage('save','http://cs.mcgill.ca/');
+	}
+	function go(str){
+		var command = document.getElementById("command").value;
+		var content = str;
+		sendServer(content, command);
+		console.log(command,content);
+	}
+	document.getElementById("save").onclick = function(){
+		var frame = document.getElementById('ed');
+		frame.contentWindow.postMessage('save','http://cs.mcgill.ca/');
+		t = 1;
+		//download(content);
+	}
+	document.getElementById("clear").onclick = function(){
+		console.log("ss");
+		//document.getElementById("res").contentWindow.clear();
+		var frame = document.getElementById('res');
+		frame.contentWindow.postMessage("clear",'http://cs.mcgill.ca/');
+		//box(st);
+	}
+	function annotation(str){
+		console.log("xsghvcsdcv");
+		var frame = document.getElementById('ed');
+		frame.contentWindow.postMessage(str,'http://cs.mcgill.ca/');
+	}
+	function box(str){
+		console.log("sks");
+		var frame = document.getElementById('res');
+		frame.contentWindow.postMessage(str,'http://cs.mcgill.ca/');
+	}
+	function download(str){
+		var textToWrite = str;
+		var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'});
+		var fileNameToSaveAs = "myNewFile.c";
+		var downloadLink = document.createElement("a");
+		downloadLink.download = fileNameToSaveAs;
+		downloadLink.innerHTML = "My Hidden Link";
+		window.URL = window.URL || window.webkitURL;
+		downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+		downloadLink.onclick = destroyClickedElement;
+		downloadLink.style.display = "none";
+		document.body.appendChild(downloadLink);
+		downloadLink.click();
+		t = 0;
+
+	}
+
+	function sendServer(string, string2 ){
+
+			$.ajax({
+			  type: "POST",
+			  url: 'back.php',
+			  data: {
+			  	code : string,
+			  	command : string2
+			  },
+			  crossDomain: true, 
+			  dataType: "json",
+			  success: function(data)
+			    {
+			        //var tmp = JSON.parse(data);
+			        split();
+			        box(data["Output:"]);
+			        box(data['Compiler Error:']);
+			        annotation(data['Compiler Error:']);
+			        console.log(data['Compiler Error:']);
+
+		        //console.log('success');
+			    },
+			    error: function (responseData, textStatus, errorThrown)
+			    {
+			        console.log('error');
+			        alert("this is the response data: " + responseData + " also error: " + errorThrown);
+			    }
+			});	
+
+		};
+	function split(str){
+		var c = str.split("\n");
+		var tmp = [];
+		for(var i = 0; i < c.length; i++){
+			var c[i]
+
+		}
+	}
+
+	function Tommyparse( string ){
+     		var parsedCode =""; 
+     		var slash = '\\';
+     		var newLine = '\n';
+     		for(var i=0; i<string.length ; i++){
+     			if(string[i] == '>'){
+     				parsedCode += string[i];
+     				parsedCode += newLine; 
+     				i++;
+     			}
+     			// if( string[i] == '"'){
+     			// 	parsedCode += slash;	
+     			// } 
+     			parsedCode += string[i];
+     		}
+     		//console.log(parsedCode);
+     		return parsedCode;
+     	}
+
+	function destroyClickedElement(event)
+	{
+	// remove the link from the DOM
+    	document.body.removeChild(event.target);
+	}
+	var st = "malloc.c: In function ‘assign_memory’:\nmalloc.c:2:5: error: ‘for’ loop initial declarations are only allowed in C99 mode\n";
+</script>
+</html>

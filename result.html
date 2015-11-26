@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+  #result p{
+    font-size: 18px;
+  }
+  </style>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+</head>
+<body>
+<div id = "result">
+<!--<p>>THIS is sucks idiot</p>
+<p>>U KNOW IT  RIGHT</p>
+<p>>sadghcsasvdxcsjadvcsadvcsuakdvcbsaydgcbsuialcbsalcsablcsacbalscujbsaclscblsccbsujsdsdsdsdcsdsdsdgvsfdvbszdgvfhbzdbsdsd</p>-->
+</div>
+</body>
+<script type="text/javascript">
+	window.addEventListener('message', function(event) {
+    console.log("result");
+    var c = "clear";
+    if (event.origin == 'http://cs.mcgill.ca') {
+      if(c.localeCompare(event.data) == 0){
+        clear();
+      }else{
+        console.log("sss");
+        write(event.data);
+      }
+    } else {
+        // The data hasn't been sent from your site!
+        // Be careful! Do not use it.
+        return;
+    }
+  });
+	function clear(){
+		var myNode = document.getElementById("result");
+		while (myNode.firstChild) {
+   			myNode.removeChild(myNode.firstChild);
+		}
+	}
+	function write(str){
+    var node = document.createElement("p"); 
+    var textnode = document.createTextNode(">"+str); 
+    node.appendChild(textnode); 
+		var myNode = document.getElementById("result");
+		myNode.appendChild(node);
+	}
+</script>
+</html>
