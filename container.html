@@ -58,6 +58,7 @@
 		frame.contentWindow.postMessage('save','http://tommy.press');
 	}
 	function go(str){
+		//console.log(command,)
 		var command = document.getElementById("command").value;
 		var content = str;
 		sendServer(content, command);
@@ -70,7 +71,7 @@
 		//download(content);
 	}
 	document.getElementById("clear").onclick = function(){
-		console.log("ss");
+		//console.log("ss");
 		//document.getElementById("res").contentWindow.clear();
 		var frame = document.getElementById('res');
 		frame.contentWindow.postMessage("clear",'http://tommy.press');
@@ -104,8 +105,8 @@
 	}
 
 	function sendServer(string, string2 ){
-		 console.log(string);
-		 console.log(string2);
+		 //console.log(string);
+		 //console.log(string2);
 			$.ajax({
 			  type: "POST",
 			  url: 'back.php',

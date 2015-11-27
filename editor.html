@@ -37,10 +37,10 @@
 
 #include &ltstdio.h&gt
 
-main()
+int main()
 {
     printf("Hello World");
-
+    return 0;
 }</pre>
  <a download="info.txt" id="downloadlink" style="display: none">Download</a>
 
@@ -73,7 +73,7 @@ main()
 		var i = (row>preRow)?preRow:row;
 		var j = (row<preRow)?preRow:row;
     //console.log(i,j);
-    if (i == j)console.log(editor.session.getLine(i),i,i);
+    if (i == j)//console.log(editor.session.getLine(i),i,i);
     else{
         for(i;i<=j;i++){
           //console.log(editor.session.getLine(i));
@@ -94,9 +94,9 @@ main()
 </script>
 <script type="text/javascript">
 	window.addEventListener('message', function(event) {
-    console.log("test1");
-    console.log(event.data);
-    console.log(event.origin);
+    //console.log("test1");
+    //console.log(event.data);
+    //console.log(event.origin);
    if (event.origin == 'http://tommy.press') {
    	  var c = "save";
       if(c.localeCompare(event.data) == 0){
