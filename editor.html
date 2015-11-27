@@ -95,10 +95,10 @@ main()
 <script type="text/javascript">
 	window.addEventListener('message', function(event) {
     //console.log(event.data);
-   if (event.origin == 'http://tommy.press/ace/') {
+   if (event.origin == 'http://tommy.press') {
    	  var c = "save";
       if(c.localeCompare(event.data) == 0){
-        parent.postMessage(save(),'http://tommy.press/ace/');
+        parent.postMessage(save(),'http://tommy.press');
       }else{
         //var em = [];
         ///console.log(parseCompilerError(event.data,errorList,warningList));

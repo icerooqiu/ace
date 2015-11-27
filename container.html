@@ -55,7 +55,7 @@
 	});
 	function submit(){
 		var frame = document.getElementById('ed');
-		frame.contentWindow.postMessage('save','http://tommy.press/ace/');
+		frame.contentWindow.postMessage('save','http://tommy.press');
 	}
 	function go(str){
 		var command = document.getElementById("command").value;
@@ -65,7 +65,7 @@
 	}
 	document.getElementById("save").onclick = function(){
 		var frame = document.getElementById('ed');
-		frame.contentWindow.postMessage('save','http://tommy.press/ace/');
+		frame.contentWindow.postMessage('save','http://tommy.press');
 		t = 1;
 		//download(content);
 	}
@@ -73,18 +73,18 @@
 		console.log("ss");
 		//document.getElementById("res").contentWindow.clear();
 		var frame = document.getElementById('res');
-		frame.contentWindow.postMessage("clear",'http://tommy.press/ace/');
+		frame.contentWindow.postMessage("clear",'http://tommy.press');
 		//box(st);
 	}
 	function annotation(str){
 		//console.log("xsghvcsdcv");
 		var frame = document.getElementById('ed');
-		frame.contentWindow.postMessage(str,'http://tommy.press/ace/');
+		frame.contentWindow.postMessage(str,'http://tommy.press');
 	}
 	function box(str){
 		//console.log("sks");
 		var frame = document.getElementById('res');
-		frame.contentWindow.postMessage(str,'http://tommy.press/ace/');
+		frame.contentWindow.postMessage(str,'http://tommy.press');
 	}
 	function download(str){
 		var textToWrite = str;

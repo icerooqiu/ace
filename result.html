@@ -20,7 +20,7 @@
 	window.addEventListener('message', function(event) {
     //console.log("result");
     var c = "clear";
-    if (event.origin == 'http://tommy.press/ace/') {
+    if (event.origin == 'http://tommy.press') {
       if(c.localeCompare(event.data) == 0){
         clear();
       }else{
