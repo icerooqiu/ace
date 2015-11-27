@@ -73,7 +73,7 @@ int main()
 		var i = (row>preRow)?preRow:row;
 		var j = (row<preRow)?preRow:row;
     //console.log(i,j);
-    if (i == j)//console.log(editor.session.getLine(i),i,i);
+    if (i == j){}//console.log(editor.session.getLine(i),i,i);
     else{
         for(i;i<=j;i++){
           //console.log(editor.session.getLine(i));
@@ -103,7 +103,7 @@ int main()
         parent.postMessage(save(),'http://tommy.press');
       }else{
         //var em = [];
-        ///console.log(parseCompilerError(event.data,errorList,warningList));
+        //console.log(parseCompilerError(event.data,errorList,warningList));
         editor.session.setAnnotations( parseCompilerError(event.data,[],[]));
       }
     } else {
