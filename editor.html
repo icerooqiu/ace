@@ -95,10 +95,10 @@ main()
 <script type="text/javascript">
 	window.addEventListener('message', function(event) {
     //console.log(event.data);
-   if (event.origin == 'http://cs.mcgill.ca') {
+   if (event.origin == 'http://tommy.press/cs.mcgill.ca/~tyang15/ace/project.html') {
    	  var c = "save";
       if(c.localeCompare(event.data) == 0){
-        parent.postMessage(save(),'http://cs.mcgill.ca/');
+        parent.postMessage(save(),'http://tommy.press/cs.mcgill.ca/~tyang15/ace/project.html');
       }else{
         //var em = [];
         ///console.log(parseCompilerError(event.data,errorList,warningList));
