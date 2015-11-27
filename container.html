@@ -40,6 +40,9 @@
 <script>
     var t = 0;
 	window.addEventListener('message', function(event) {
+		console.log("test2");
+		console.log(event.data);
+		console.log(event.origin);
 		if (event.origin == 'http://tommy.press/ace/') {
 			if ( t == 0){
 				go(event.data);

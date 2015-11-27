@@ -94,7 +94,9 @@ main()
 </script>
 <script type="text/javascript">
 	window.addEventListener('message', function(event) {
-    //console.log(event.data);
+    console.log("test1");
+    console.log(event.data);
+    console.log(event.origin);
    if (event.origin == 'http://tommy.press') {
    	  var c = "save";
       if(c.localeCompare(event.data) == 0){
