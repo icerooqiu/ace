@@ -97,13 +97,13 @@ int main()
     //console.log("test1");
     //console.log(event.data);
     //console.log(event.origin);
-   if (event.origin == 'http://tommy.press') {
+   if (event.origin == 'http://cs.mcgill.ca') {
    	  var c = "save";
       if(c.localeCompare(event.data) == 0){
-        parent.postMessage(save(),'http://tommy.press');
+        parent.postMessage(save(),'http://cs.mcgill.ca');
       }else{
         //var em = [];
-        //console.log(parseCompilerError(event.data,errorList,warningList));
+        //console.log(parseCompilerError(event.data,[],[]));
         editor.session.setAnnotations( parseCompilerError(event.data,[],[]));
       }
     } else {
@@ -116,7 +116,6 @@ int main()
 </body>
 <script>
 var errorList = [];
-var warningList = [];
 
 function error(row, msg, errorType){
 	this.row = row;
@@ -131,20 +130,21 @@ function addLineError(text)
 function addError(errList, error){
 	errList.push(error);
 }
-function removeError(){
-	errList = []
+function removeError(errorList){
+	errorList.length = 0; 
 }
 function value(type, name){
     this.name = name;
     this.type = type;
 }
 
-function parseCompilerError(text, errorList, warningList){
+function parseCompilerError(text, err, war){
 
-    //console.log(text);
+    console.log(text);
     if(text.search("gcc: error:") === 0){
         return errorList;
-    }
+    }else
+      removeError(errorList);
 
     var fileName = text.substr(0, text.indexOf(":", 0) + 1);
     var lines = text.split('\n');
@@ -182,10 +182,11 @@ function parseCompilerError(text, errorList, warningList){
 	        //length = lines[i].length - length;
 	        //col = parseInt(lines[i].substr(col + 1, length));
 	        err = new error(row-1, lines[i], "warning");
-	        addError(warningList,  err);
+	        addError(errorList,  err);
 	        index++;
 	    }
 	}
+  console.log(errorList);
 
 	return errorList;
 }

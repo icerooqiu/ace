@@ -40,7 +40,7 @@
 <script>
     var t = 0;
 	window.addEventListener('message', function(event) {
-		if (event.origin == 'http://tommy.press') {
+		if (event.origin == 'http://cs.mcgill.ca') {
 			if ( t == 0){
 				go(event.data);
 			}else{
@@ -55,7 +55,7 @@
 	});
 	function submit(){
 		var frame = document.getElementById('ed');
-		frame.contentWindow.postMessage('save','http://tommy.press');
+		frame.contentWindow.postMessage('save','http://cs.mcgill.ca');
 	}
 	function go(str){
 		//console.log(command,)
@@ -66,7 +66,7 @@
 	}
 	document.getElementById("save").onclick = function(){
 		var frame = document.getElementById('ed');
-		frame.contentWindow.postMessage('save','http://tommy.press');
+		frame.contentWindow.postMessage('save','http://cs.mcgill.ca');
 		t = 1;
 		//download(content);
 	}
@@ -74,18 +74,18 @@
 		//console.log("ss");
 		//document.getElementById("res").contentWindow.clear();
 		var frame = document.getElementById('res');
-		frame.contentWindow.postMessage("clear",'http://tommy.press');
+		frame.contentWindow.postMessage("clear",'http://cs.mcgill.ca');
 		//box(st);
 	}
 	function annotation(str){
 		//console.log("xsghvcsdcv");
 		var frame = document.getElementById('ed');
-		frame.contentWindow.postMessage(str,'http://tommy.press');
+		frame.contentWindow.postMessage(str,'http://cs.mcgill.ca');
 	}
 	function box(str){
 		//console.log("sks");
 		var frame = document.getElementById('res');
-		frame.contentWindow.postMessage(str,'http://tommy.press');
+		frame.contentWindow.postMessage(str,'http://cs.mcgill.ca');
 	}
 	function download(str){
 		var textToWrite = str;
@@ -128,7 +128,7 @@
 			    },
 			    error: function (responseData, textStatus, errorThrown)
 			    {
-			        console.log('error');
+			        console.log('server connection failure');
 			        alert("this is the response data: " + responseData + " also error: " + errorThrown);
 			    }
 			});	

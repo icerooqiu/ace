@@ -20,7 +20,7 @@
 			file_put_contents($file, $_POST['code'] , LOCK_EX);
 			$command = $_POST['command'];
 
-			exec($command." 2>&1", $errLines);
+				
 
 			$error = implode("\n",$errLines);
 			/*
