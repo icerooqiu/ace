@@ -34,7 +34,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="footerText">Copyright - © Tommy, Jeremy, Xiru. All rights reserved.</div>
+		<div class="footerText"><a target='_parent' class = "resource"href="https://github.com/icerooqiu/ace/">Copyright - © Tommy, Jeremy, Xiru. All rights reserved.</a></div>
 	</div>
 </body>
 <script>
@@ -118,7 +118,9 @@
 			    {
 
 			        annotation(data['Compiler Error:']);
-			        split(data['Compiler Error:']);
+			        if(data['Compiler Error:'] != "")split(data['Compiler Error:']);
+			        //split(data['Compiler Error:']);
+			        //console.log(data['Compiler Error:'] === "");
 			        box(data["Output:"]);
 
 			    },

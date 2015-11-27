@@ -1,0 +1,14 @@
+1.content: 
+/* Hello World program */
+
+#include <stdio.h>
+
+main()
+{
+    printf("Hello World");
+}
+command:who 
+output: >psidha pts/8 Jun 19 16:27 (bas4-montrealak-1088705525:S.1)
+
+		>Hello World
+//output should not exist
