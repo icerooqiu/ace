@@ -93,14 +93,15 @@ int main()
 	}
 </script>
 <script type="text/javascript">
+var url = 'http://tommy.press';
 	window.addEventListener('message', function(event) {
     //console.log("test1");
     //console.log(event.data);
     //console.log(event.origin);
-   if (event.origin == 'http://cs.mcgill.ca') {
+   if (event.origin == url) {
    	  var c = "save";
       if(c.localeCompare(event.data) == 0){
-        parent.postMessage(save(),'http://cs.mcgill.ca');
+        parent.postMessage(save(),url);
       }else{
         //var em = [];
         //console.log(parseCompilerError(event.data,[],[]));
@@ -140,7 +141,7 @@ function value(type, name){
 
 function parseCompilerError(text, err, war){
 
-    console.log(text);
+    //console.log(text);
     if(text.search("gcc: error:") === 0){
         return errorList;
     }else
@@ -186,7 +187,7 @@ function parseCompilerError(text, err, war){
 	        index++;
 	    }
 	}
-  console.log(errorList);
+  //console.log(errorList);
 
 	return errorList;
 }

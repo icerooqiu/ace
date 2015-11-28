@@ -17,10 +17,11 @@
 </div>
 </body>
 <script type="text/javascript">
+var url = 'http://tommy.press';
 	window.addEventListener('message', function(event) {
     //console.log("result");
     var c = "clear";
-    if (event.origin == 'http://cs.mcgill.ca') {
+    if (event.origin == url) {
       if(c.localeCompare(event.data) == 0){
         clear();
       }else{

@@ -38,9 +38,11 @@
 	</div>
 </body>
 <script>
+//http://cs.mcgill.ca http://tommy.press/
+	var url = 'http://tommy.press';
     var t = 0;
 	window.addEventListener('message', function(event) {
-		if (event.origin == 'http://cs.mcgill.ca') {
+		if (event.origin == url) {
 			if ( t == 0){
 				go(event.data);
 			}else{
@@ -55,7 +57,7 @@
 	});
 	function submit(){
 		var frame = document.getElementById('ed');
-		frame.contentWindow.postMessage('save','http://cs.mcgill.ca');
+		frame.contentWindow.postMessage('save',url);
 	}
 	function go(str){
 		//console.log(command,)
@@ -66,7 +68,7 @@
 	}
 	document.getElementById("save").onclick = function(){
 		var frame = document.getElementById('ed');
-		frame.contentWindow.postMessage('save','http://cs.mcgill.ca');
+		frame.contentWindow.postMessage('save',url);
 		t = 1;
 		//download(content);
 	}
@@ -74,18 +76,18 @@
 		//console.log("ss");
 		//document.getElementById("res").contentWindow.clear();
 		var frame = document.getElementById('res');
-		frame.contentWindow.postMessage("clear",'http://cs.mcgill.ca');
+		frame.contentWindow.postMessage("clear",url);
 		//box(st);
 	}
 	function annotation(str){
 		//console.log("xsghvcsdcv");
 		var frame = document.getElementById('ed');
-		frame.contentWindow.postMessage(str,'http://cs.mcgill.ca');
+		frame.contentWindow.postMessage(str,url);
 	}
 	function box(str){
 		//console.log("sks");
 		var frame = document.getElementById('res');
-		frame.contentWindow.postMessage(str,'http://cs.mcgill.ca');
+		frame.contentWindow.postMessage(str,url);
 	}
 	function download(str){
 		var textToWrite = str;
@@ -105,8 +107,8 @@
 	}
 
 	function sendServer(string, string2 ){
-		 console.log(string);
-		 console.log(string2);
+		 //console.log(string);
+		// console.log(string2);
 			$.ajax({
 			  type: "POST",
 			  url: 'back.php',
@@ -118,12 +120,13 @@
 			  dataType: "json",
 			  success: function(data)
 			    {
+			    	//console.log(data["Output:"])
 
 			        annotation(data['Compiler Error:']);
 			        if(data['Compiler Error:'] != "")split(data['Compiler Error:']);
 			        //split(data['Compiler Error:']);
 			        //console.log(data['Compiler Error:'] === "");
-			        box(data["Output:"]);
+			        split(data["Output:"]);
 
 			    },
 			    error: function (responseData, textStatus, errorThrown)
